@@ -93,19 +93,6 @@ function App() {
         cost: 4
       },
     });
-    const [definition, example] = await fetchWordData(currentWord);
-    setHints({
-        definition: {
-          str: cleanStr(definition),
-          isShown: false,
-          cost: 4
-        },
-        example: {
-            str: cleanStr(example),
-            isShown: false,
-            cost: 4
-          }
-      });
   }
 
   const handleHint = (str) => {
@@ -224,7 +211,7 @@ function App() {
       });
     }
     fetchInit();
-  },[])
+  },[currentWord])
   
   if (isGameOver) {
     console.log(currentWord);
