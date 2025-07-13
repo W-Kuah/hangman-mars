@@ -159,7 +159,12 @@ function App() {
   });
 
   const letterElems = currentWord.split("").map((letter, idx) => (
-    <span key={idx}>{guessedLetters[letter] && letter}</span>
+    <span 
+      key={idx}
+      className={clsx(
+            isLost && !guessedLetters[letter] && "missed-letter"
+        )}
+    >{(guessedLetters[letter] || isGameOver) && letter}</span>
   ));
 
   const  keyboardElems = keyboard.map(letter => (
@@ -213,9 +218,6 @@ function App() {
     fetchInit();
   },[currentWord])
   
-  if (isGameOver) {
-    console.log(currentWord);
-  }
   return (
       <main>
         <header>

@@ -142,6 +142,9 @@ section.word > span {
   font-size: 1.125em;
   border-bottom: 1px solid #F9F4DA;
 }
+section.word > span.missed-letter {
+    color: #EC5D49;
+}
 
 section.keyboard {
   display: flex;
