@@ -1,0 +1,251 @@
+body {
+  font-family: "Hanken Grotesk", Arial, sans-serif;
+    background-color: #262626;
+    color: #D9D9D9;
+    padding: 20px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+header {
+  text-align: center;
+  border: 1px solid #F9F4DA;
+  padding-inline: 10px;
+  padding-bottom: 15px;
+}
+
+header > h1 {
+  font-size: 1.25em;
+  font-weight: 500;
+  color: #F9F4DA;
+}
+
+header > p {
+  font-size: 0.875em;
+  max-width: 350px;
+  color: #8E8E8E;
+  margin-block: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section.game-status {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #F9F4DA;
+  min-height: 100px;
+  border-radius: 30px;
+  margin-block: 30px;
+  padding-bottom: 5px;
+  padding-inline: 10px;
+  max-width: 350px;
+  min-width: 260px;
+  border-inline: dotted 1px rgb(255, 255, 255);
+}
+
+section.game-status.won {
+    background-color: #10A95B;
+}
+
+section.game-status.lost {
+    background-color: #BA2A2A;
+}
+
+section.game-status.damage {
+  background-color: rgb(140, 0, 255);
+  white-space: wrap;
+  position: relative;
+  padding-inline: 35px;
+}
+
+
+
+.damage::after {
+  position: absolute;
+  content:"⚠️";
+  top: 21px;
+  left: 90%;
+}
+
+.damage::before {
+  position: absolute;
+  content:"⚠️";
+  top: 21px;
+  left: 5%;
+}
+
+section.game-status p {
+  text-align: center;
+  margin: 5px;
+}
+section.game-status > h2 {
+  font-size: 1.1em;
+  margin: 5px;
+  text-align: center;
+}
+
+section.facility-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+  max-width: 350px;
+  margin-bottom: 36px;
+}
+
+span.chip {
+  border-radius: 3px;
+  padding: 4.5px;
+  position: relative;
+}
+
+span.chip.lost::before {
+    content: "❌";
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    font-size: 0.85rem;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+section.word {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  margin-bottom: 20px;
+  flex-wrap:nowrap;
+  width: 100%;
+  height: 40px;
+}
+
+section.word > span {
+  flex-basis: 40px;
+  flex-shrink: 1;
+
+  background-color: #323232;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.125em;
+  border-bottom: 1px solid #F9F4DA;
+}
+
+section.keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  max-width: 450px;
+  margin-bottom: 20px;
+}
+
+section.keyboard > button {
+  height: 35px;
+  width: 35px;
+  background-color: #169eff;
+  border: 1px solid #D7D7D7;
+  color: rgb(255, 255, 255);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+section.keyboard > button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5
+}
+
+section.keyboard > button.correct {
+    background-color: #10A95B;
+    color: black;
+}
+
+section.keyboard > button.wrong {
+    background-color: #EC5D49;
+    color: black;
+}
+
+
+section.hints {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: stretch;
+  margin-top: 2.5px;
+  width: 100%;
+  /* max-width: 350px; */
+  margin-bottom: 25px;
+  padding-inline: 70px;
+  position: relative;
+}
+
+section.hints > div{
+  border-block: 1px dashed #8E8E8E;
+  padding-block: 10px;
+}
+
+section.hints h2 {
+  font-size: 1.1em;
+  margin: 5px;
+  text-align: center;
+}
+
+section.hints > div button {
+  border-radius: 10px;
+  border: none;
+  background-color: #ff4646;
+  color: rgb(255, 255, 255);
+  border: 1px solid white;
+  font-size: 1em;
+  padding: 5px 7px;
+}
+
+section.hints > div div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+section.hints p {
+  font-size: 0.925em;
+}
+
+
+button.new-game {
+    background-color: #FCBA29;
+    border: 1px solid #D7D7D7;
+    border-radius: 4px;
+    width: 225px;
+    height: 40px;
+    padding: 6px 12px;
+    display: block;
+    margin-inline: auto;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
