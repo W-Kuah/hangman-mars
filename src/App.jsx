@@ -81,6 +81,18 @@ function App() {
     setGuessedLetters(resetKeyboard());
     setLives(facilities.length)
     setCurrentWord(genNewWord());
+    setHints({
+      definition: {
+        str: '',
+        isShown: false,
+        cost: 4
+      },
+      example: {
+        str: '',
+        isShown: false,
+        cost: 4
+      },
+    });
     const [definition, example] = await fetchWordData(currentWord);
     setHints({
         definition: {
@@ -116,19 +128,6 @@ function App() {
 
   const fetchWordData = async (word) => {
     if (!word) return;
-    setHints({
-      definition: {
-        str: '',
-        isShown: false,
-        cost: 4
-      },
-      example: {
-        str: '',
-        isShown: false,
-        cost: 4
-      },
-    });
-
     try {
       const res = await axios.get(
         `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
