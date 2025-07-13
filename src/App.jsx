@@ -35,7 +35,7 @@ function App() {
     while (matcher.hasMatch(newWord)) {
       newWord = generate({ minLength: 5, maxLength: 11 });
     }
-    return newWord;
+    return newWord.toUpperCase();
   }
 
   const calculateWin = () => {
@@ -46,7 +46,7 @@ function App() {
   }
 
   // State Values
-  const [currentWord, setCurrentWord] = useState(()=> genNewWord().toUpperCase());
+  const [currentWord, setCurrentWord] = useState(()=> genNewWord());
   const [currentHints, setHints] = useState({
     definition: {
       str: '',
